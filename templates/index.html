@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text-to-SQL Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin: 20px 0;
+        }
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        pre {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            max-width: 500px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text-to-SQL Generator</h1>
+    <p>Enter a natural language prompt to generate a SQL query for the Honda_Sales database.</p>
+    <form method="POST">
+        <textarea name="user_input" placeholder="e.g., Show me the total sales by city for Honda sales." required></textarea>
+        <br>
+        <button type="submit">Generate SQL Query</button>
+    </form>
+    {% if sql_query %}
+        <h2>Generated SQL Query:</h2>
+        <pre>{{ sql_query }}</pre>
+    {% endif %}
+</body>
+</html>
